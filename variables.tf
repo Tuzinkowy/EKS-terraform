@@ -63,3 +63,36 @@ variable "eks_version" {
   type        = string
   default     = "1.23"
 }
+
+
+###NODE###
+
+variable "node_desired_size" {
+  description = ""
+  type = number
+  default = 2
+}
+
+variable "node_max_size" {
+  description = ""
+  type = number
+  default = 5
+}
+
+variable "node_min_size" {
+  description = ""
+  type = number
+  default = 1
+}
+
+variable "ami_type" {
+  description = ""
+  type = string
+  default = "AL2_x86_64"
+}
+
+variable "csi_driver_addon_version" {
+  description = ""
+  type = string
+  default = "v1.13.0-eksbuild.2"
+}

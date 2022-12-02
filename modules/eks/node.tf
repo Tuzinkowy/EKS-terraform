@@ -6,12 +6,12 @@ resource "aws_eks_node_group" "node" {
   subnet_ids      = var.aws_subnet_private[*].id
 
   scaling_config {
-    desired_size = 2
-    max_size     = 5
-    min_size     = 1
+    desired_size = var.node_desired_size
+    max_size     = var.node_max_size
+    min_size     = var.node_min_size
   }
 
-  ami_type       = "AL2_x86_64" # AL2_x86_64, AL2_x86_64_GPU, AL2_ARM_64, CUSTOM
+  ami_type       = var.ami_type # AL2_x86_64, AL2_x86_64_GPU, AL2_ARM_64, CUSTOM
   capacity_type  = "ON_DEMAND"  # ON_DEMAND, SPOT
   disk_size      = 500
   instance_types = ["t2.2xlarge"]
